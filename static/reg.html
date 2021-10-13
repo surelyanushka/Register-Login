@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="/SE%20LOGIN%20MODULE/css/portal.css" />
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="css/util.css">
+</head>
+
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt="" style="
+              will-change: transform;
+              transform: perspective(300px) rotateX(0deg) rotateY(0deg);
+            ">
+          <img src="../css/img-01.png" alt="IMG" />
+        </div>
+        <form class="login100-form validate-form" id="login-form">
+          <span class="login100-form-title"> Student Login </span>
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" id="email" name="email" placeholder="Email" />
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+            </span>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" id="password" name="pass" placeholder="Password" />
+            <span class="focus-input100"></span>
+            <span class="symbol-input100">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            </span>
+          </div>
+          <input  type="submit" value="Login" class="login100-form-btn" >
+           class="login100-form-btn" -->
+          <!-- <div class="container-login100-form-btn">
+            
+            <input type="submit" class="login100-form-btn" value="Login">
+          </div> -->
+
+          <!-- <div class="text-center p-t-136">
+            <a class="txt2" href="/static/index.html">
+              Create your Account
+              <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('login-form')
+    form.addEventListener('submit', login)
+
+    async function login(event){
+      event.preventDefault()
+      const password = document.getElementById('password').value
+      const email = document.getElementById('email').value
+     
+      const result = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password
+          
+        })
+
+      }).then(res => res.json())
+      
+      if(result.status === 'ok'){
+        console.log('Got token', result.data)
+        alert('Success')
+      }else {
+        alert(result.error)
+      }
+    }
+     
+
+  </script>
+
+  <script>
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+  <script src="vendor/tilt/tilt.jquery.min.js"></script>
+
+</body>
+
+</html> --> 

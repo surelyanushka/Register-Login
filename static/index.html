@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Portal</title>
+  <link rel="stylesheet" type="text/css" href="/portal.css" />
+
+</head>
+
+<body>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <div class="login100-pic js-tilt" data-tilt="" style="
+              will-change: transform;
+              transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+          <img src="/img-01.png" alt="IMG" />
+        </div>
+        <form class="login100-form validate-form" id="reg-form">
+          <span class="login100-form-title2"> Portal Registration </span>
+          <input type="text" autocomplete="off" class="input1002" id="username" placeholder="Username" required>
+          <input type="text" autocomplete="off"  class="input1002" id="email" placeholder="Email" required>
+          <input type="password" id="password"  class="input1002"  autocomplete="off" placeholder="Password" required>
+         
+
+          <div class="tezt">
+          <select class="input1003" id="branch" name="branch">
+            <option value="CS">CS</option>
+            <option value="IT">IT</option>
+            <option value="EXTC">EXTC</option>
+            <option value="PPT">PPT</option>
+          </select>
+
+          <select class="input1003" id="year" name="year">
+            <option value="FE">FE</option>
+            <option value="SE">SE</option>
+            <option value="TE">TE</option>
+            <option value="BE">BE</option>
+          </select>
+
+        </div>
+          <input type="submit" class="login100-form-btn" value="Submit Form">
+          <div class="text-center p-t-136">
+            <a class="txt2" href="/login.html">
+              Already registered?
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('reg-form')
+    form.addEventListener('submit', registerUser)
+
+    async function registerUser(event) {
+      event.preventDefault()
+      const username = document.getElementById('username').value
+      const password = document.getElementById('password').value
+      const email = document.getElementById('email').value
+      const branch = document.getElementById('branch').value
+      const year = document.getElementById('year').value
+
+      const result = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password,
+          email,
+          branch,
+          year
+        })
+
+      }).then(res => res.json())
+
+      if (result.status === 'ok') {
+        window.open('home.html', '_parent');
+      } else {
+        alert(result.error)
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
